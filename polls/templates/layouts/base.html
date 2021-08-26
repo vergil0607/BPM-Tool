@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>nav li:hover {
+      background: #789456;
+
+
+    }
+    .temp {
+        width: 100%;
+    }
+    </style>
+</head>
+<body class="container-fluid bg-light p-0">
+
+{% include "include/topnav.html" %}
+
+  <main>
+    <div class="container-fluid row p-0 m-0">
+        <div class="container-fluid col-2 p-0 bg-dark collapse show" id="sidebar" style="min-height: 100vh;">
+            {% include "include/sidebar.html" %}
+        </div>
+        <div class="container-fluid col-10 pt-3">
+            {% include "main.html" %}
+            <div class="navbar navbar-inverse navbar-fixed-bottom">
+                <div class="container">
+                    <p class="navbar-text">© Sebastian Wieser</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+
+
+
+</body>
+</html>
