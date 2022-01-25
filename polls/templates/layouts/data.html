@@ -1,0 +1,74 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+
+
+
+
+<script>
+$(document).ready(function(){
+    $('#datatable-table').dataTable();
+});
+</script>
+
+
+<script>
+     $( "#side-main" ).addClass( "active" );
+     $( "#side-main" ).children('a').children('i').addClass( "active" );
+</script>
+
+
+
+
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h3>Überblick - Ausschreibungen bis <script> document.write(new Date().toLocaleDateString()); </script></h3>
+    <br>
+    <a href="../newdata/"><button type="button" class="nav-link btn btn-dark">add new Project</button></a>
+    <br>
+    <br>
+
+ <!-- <input class="shadow" type="text" id="myInput" onkeyup="filterTable()" placeholder="Search for (Ausschreibungs-) Nummer ..."> -->
+<!--  <div class="tableFixHead mt-4" id="datatable-div" style="height: 50vh; overflow: auto;"> -->
+
+
+    <table id="datatable-table" class="table table-striped table-bordered" style="width:100%" >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nummer</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Auftraggeber</th>
+          <th>Auftragswert</th>
+          <th>Datum</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for AS in Ausschreibungen %}
+          <tr>
+            <td>{{ AS.id }}</td>
+            <td>{{ AS.Nummer }}</td>
+            <td>{{ AS.Name }}</td>
+            <td>{{ AS.Status }}</td>
+            <td>{{ AS.Auftraggeber }}</td>
+            <td>{{ AS.Auftragswert }}</td>
+            <td>{{ AS.DatumNotifikation }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+  </div>
+
+
+
+
+
+ <!-- </div>   -->
+
+
+</div>
+
+{% endblock content %}

@@ -1,34 +1,67 @@
-<aside class="sidenav navbar navbar-vertical p-0 border-radius-xl bg-dark fixed-left ms-4" id="sidenav-main">
+<aside class="navbar-expand pt-4" >
 
-    <nav class="navbar navbar-expand bg-dark text-light p-0" id="sidenav-collapse-main" style="width: 100%;">
-        <ul class="nav flex-column mt-2 my-4 pt-4">
-            <li class="nav-item mb-1 px-3" style="width:100%;">
+ <nav class="navbar-expand text-light p-0 w-100" id="sidenav-collapse-main"
+      style="width: 100%;">
+        <ul class="nav flex-column mt-2 my-4 pt-4 text-light sidenav_items" id="sidebar1">
+            <li class="nav-item mb-1 px-3" id="side-home" style="width:100%;">
 
-                <a class="nav-link text-white " href="#">
-                    <i class="fas fa-database" style="color: #79aec8; padding-right: 6px;"></i>
-                    Data
+                <a class="nav-link text-white " href="/home/">
+
+                        <i class="fas fa-home temp" style="width: 1.75em;"></i>
+                        Home
+
                 </a>
             </li>
-            <li class="nav-item mb-1 px-3" style="width:100%;">
-                <a class="nav-link text-white active" href="#">
-                    <i class="fas fa-chart-bar" style="color: #79aec8; padding-right: 6px;"></i>
-                    Analytics
+            <li class="nav-item mb-1 px-3" id="side-processes" style="width:100%;">
+
+                <a class="nav-link text-white " href="/processes/">
+
+                        <i class="fas fa-cogs temp" style="width: 1.75em;"></i>
+                        Processes
+
+                </a>
+            </li>
+            <li class="nav-item mb-1 px-3" id="side-main" style="width:100%;">
+
+                <a class="nav-link text-white ml-auto"  href="{% url 'polls:data' %}">
+
+                        <i class="fas fa-database temp" style="width: 1.75em;"></i>
+                        Data
+
+                </a>
+            </li>
+            <li class="nav-item mb-1 px-3" id="side-analytics" style="width:100%;">
+
+                <a class="nav-link text-white" href="../analytics/">
+
+                        <i class="fas fa-chart-bar temp" style="width: 1.75em;"></i>
+                        Analytics
+
                 </a>
             </li>
             <li class="nav-item mb-1 px-3" style="width:100%;">
                 <a class="nav-link text-white" href="#">
-                    <i class="fas fa-chart-pie" style="color: #79aec8; padding-right: 6px;"></i>
-                    Inference
+
+                        <i class="fas fa-chart-pie temp" style="width: 1.75em;"></i>
+                        Inference
+
                 </a>
             </li>
             <li class="nav-item mb-1 px-3" style="width:100%;">
                 <a class="nav-link text-white" href="#">
-                    <i class="fas fa-chart-line" style="color: #79aec8; padding-right: 6px;"></i>
-                    Prediction
+
+                        <i class="fas fa-chart-line temp" style="width: 1.75em;"></i>
+                        Prediction
+
                 </a>
+            </li>
+            <li class="nav-item mb-1 px-3" style="width:100%;">
+
+                        {% load static %}
+                       <!-- <img src="{% static 'admin/img/data1.jpg' %}" class="img-fluid pt-4"> -->
             </li>
         </ul>
-    </nav>
+  </nav>
 
 
 </aside>

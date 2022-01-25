@@ -3,11 +3,44 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from .models import Question, Choice
+from django.views.generic import ListView
+from .models import Question, Choice, ExternalData, Ausschreibungen
 
 
 def base(request):
     return render(request, 'layouts/base.html')
+
+
+def main(request):
+    return render(request, 'main.html')
+
+
+def home(request):
+    return render(request, 'layouts/home.html')
+
+
+def processes(request):
+    return render(request, 'layouts/processes.html')
+
+
+def data(request):
+    edata = Ausschreibungen.objects.all()
+    context = {
+        'Ausschreibungen': edata
+    }
+    return render(request, 'layouts/data.html', context)
+
+
+def newData(request):
+    return render(request, 'layouts/newData.html')
+
+
+def analytics(request):
+    return render(request, 'layouts/analytics.html')
+
+
+def dev(request):
+    return render(request, 'layouts/dev.html')
 
 
 def index(request):
@@ -46,3 +79,4 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 # Create your views here.
+

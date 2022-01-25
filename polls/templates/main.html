@@ -1,8 +1,20 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<script>
+     $( "#side-main" ).addClass( "active" );
+     $( "#side-main" ).children('a').children('i').addClass( "active" );
+</script>
+
+
 <div class="jumbotron">
   <div class="container-fluid">
     <h3>Basic Navbar Example</h3>
-    <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
-    <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
+
+    
+
 
     <p class="text-primary">.text-primary</p>
     <p class="text-secondary">.text-secondary</p>
@@ -18,3 +30,5 @@
 
 
 </div>
+
+{% endblock content %}

@@ -1,9 +1,12 @@
-<div class="container-fluid p-0 border-bottom">
+<div class="container-fluid p-0 border-bottom sticky-top">
 
         <nav class="navbar navbar-expand-sm bg-white text-secondary">
 
-            <div class="container-fluid col-2 pr-0 border-right">
-                <a class="navbar-brand text-dark">LOGO</a>
+            <div class="container-fluid col-2 pr-2 pl-0 border-right">
+                <a class="navbar-brand text-dark">
+                    {% load static %}
+                       <a href="http://www.accure.at" ><img src="{% static 'admin/img/v2-green.png' %}" class="img-fluid pr-6 w-50"></a>
+                </a>
 
                   <button class="button" type="button" data-toggle="collapse" data-target="#sidebar"
                           aria-expanded="true" aria-controls="sidebar" style="background: none; border:none;">
@@ -18,25 +21,20 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 1</a>
+                    <a class="nav-link text-secondary" href="#">Processes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 2</a>
+                    <a class="nav-link text-secondary" href="#">Automation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 3</a>
+                    <a class="nav-link text-secondary" href="#">Contact</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 1</a>
+                    <a class="nav-link text-secondary" href="#">Logout</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Link 3</a>
-                </li>
+
             </ul>
 
         </div>

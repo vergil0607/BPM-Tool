@@ -1,0 +1,17 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<script>
+     $( "#side-analytics" ).addClass( "active" );
+     $( "#side-analytics" ).children('a').children('i').addClass( "active" );
+</script>
+
+
+<div class="jumbotron">
+    <h3>Überblick - Ausschreibungen bis <script> document.write(new Date().toLocaleDateString()); </script></h3>
+    <iframe width="100%" height="700" src="https://app.powerbi.com/reportEmbed?reportId=70a59f77-b1fd-4d83-b58f-890f296be295&autoAuth=true&ctid=ec0f0039-d243-4234-ad8f-93d005d03470&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWUtcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+
+{% endblock content %}

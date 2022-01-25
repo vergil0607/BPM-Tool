@@ -16,3 +16,6 @@ db.sqlite3
 __pycache__/
 *.py[cod]
 *$py.class
+**.jpg
+**.png
+**.ico

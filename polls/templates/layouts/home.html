@@ -1,0 +1,82 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<script>
+     $( "#side-home" ).addClass( "active" );
+     $( "#side-home" ).children('a').children('i').addClass( "active" );
+</script>
+
+
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h3>Welcome to Accure Process-Analytics</h3>
+    <p>Evaluate your potential for automation</p>
+    <hr>
+    <h4>What would you like to do?</h4>
+    <div class="container-fluid row">
+      <div class="hovereffect container-fluid col-4 p-3">
+        <p>Add a <b style="color:#1C3749;">new process </b> </li></p>
+        {% load static %}
+        <img class="rounded mx-auto img-fluid h-75 w-100 shadow" src="{% static 'admin/img/newProcess.jpg' %}" alt="My image">
+        <div class="overlay">
+           <h2>add new process</h2>
+           <a class="info" href="#">click here</a>
+        </div>
+      </div>
+      <div class="hovereffect container-fluid col-4 p-3">
+        <p>Edit your <b style="color:#1C3749;">current processes</b></p>
+        {% load static %}
+        <img class="rounded mx-auto img-fluid h-75 w-100 shadow" src="{% static 'admin/img/editProcess.jpg' %}" alt="My image">
+        <div class="overlay">
+           <h2>edit process</h2>
+           <a class="info" href="#">click here</a>
+        </div>
+      </div>
+      <div class="hovereffect my-gallery container-fluid col-4 p-3">
+        <p>Evaluate your <b style="color:#1C3749;">automation potential</b></p>
+        {% load static %}
+        <img class="rounded mx-auto img-fluid h-75 w-100 shadow" src="{% static 'admin/img/evalProcess.jpg' %}" alt="My image">
+        <div class="overlay">
+           <h2>evaluate potential</h2>
+           <a class="info" href="#">click here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
+
+    <p class="text-primary">.text-primary</p>
+    <p class="text-secondary">.text-secondary</p>
+    <p class="text-success">.text-success</p>
+    <p class="text-danger">.text-danger</p>
+    <p class="text-warning">.text-warning</p>
+    <p class="text-info">.text-info</p>
+    <p class="text-light bg-dark">.text-light</p>
+    <p class="text-dark">.text-dark</p>
+    <p class="text-muted">.text-muted</p>
+    <p class="text-white bg-dark">.text-white</p>
+  </div>
+-->
+
+</div>
+
+
+
+{% endblock content %}

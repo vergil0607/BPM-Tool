@@ -1,0 +1,183 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<script>
+     $( "#side-processes" ).addClass( "active" );
+     $( "#side-processes" ).children('a').children('i').addClass( "active" );
+</script>
+<!--<script src="https://unpkg.com/bpmn-js@8.9.1/dist/bpmn-viewer.development.js"></script>-->
+
+
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h3>Add new process</h3>
+    <hr>
+    <h5>Process parameters</h5>
+
+  <form class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="e-mail">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="password">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">State</label>
+      <select id="inputState" class="form-select">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  <hr>
+
+    <h5>Process diagram</h5>
+    <style>
+      html, body, #canvas {
+        height: 800px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .diagram-note {
+        background-color: rgba(66, 180, 21, 0.7);
+        color: White;
+        border-radius: 5px;
+        font-family: Arial;
+        font-size: 12px;
+        padding: 5px;
+        min-height: 16px;
+        width: 50px;
+        text-align: center;
+      }
+
+      .needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
+        stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
+      }
+
+      #save-button {
+        position: float;
+        bottom: 20px;
+        left: 20px;
+      }
+    </style>
+
+    <div id="canvas"></div>
+
+    <button id="save-button">print to console</button>
+
+    <script>
+
+      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
+
+      // modeler instance
+      var bpmnModeler = new BpmnJS({
+        container: '#canvas',
+        keyboard: {
+          bindTo: window
+        }
+      });
+
+      /**
+       * Save diagram contents and print them to the console.
+       */
+      async function exportDiagram() {
+
+        try {
+
+          var result = await bpmnModeler.saveXML({ format: true });
+
+          alert('Diagram exported. Check the developer tools!');
+
+          console.log('DIAGRAM', result.xml);
+        } catch (err) {
+
+          console.error('could not save BPMN 2.0 diagram', err);
+        }
+      }
+
+      /**
+       * Open diagram in our modeler instance.
+       *
+       * @param {String} bpmnXML diagram to display
+       */
+      async function openDiagram(bpmnXML) {
+
+        // import diagram
+        try {
+
+          await bpmnModeler.importXML(bpmnXML);
+
+          // access modeler components
+          var canvas = bpmnModeler.get('canvas');
+          var overlays = bpmnModeler.get('overlays');
+
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+
+          // attach an overlay to a node
+          overlays.add('SCAN_OK', 'note', {
+            position: {
+              bottom: 0,
+              right: 0
+            },
+            html: '<div class="diagram-note">Mixed up the labels?</div>'
+          });
+
+          // add marker
+          canvas.addMarker('SCAN_OK', 'needs-discussion');
+        } catch (err) {
+
+          console.error('could not import BPMN 2.0 diagram', err);
+        }
+      }
+
+
+      // load external diagram file via AJAX and open it
+      $.get(diagramUrl, openDiagram, 'text');
+
+      // wire save button
+      $('#save-button').click(exportDiagram);
+    </script>
+
+
+
+
+  </div>
+</div>
+
+
+
+{% endblock content %}
