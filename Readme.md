@@ -17,4 +17,4 @@
 * lightblue: #79aec8
 
 #TODO: 
-* Find a faster way to sort the table
+* Allow comments in the process flows
